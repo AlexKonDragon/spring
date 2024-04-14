@@ -1,0 +1,29 @@
+<html xmlns:th="https://thymeleaf.org">
+<body class="container">
+<form class="col p-3 my-5" method="post" th:action="'/'+${student.id}" th:object="${student}">
+<table>
+    <tr>
+        <td><h4>Student Name: </h4></td>
+        <td><h4 th:text="${student.name}"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Student Surname: </h4></td>
+        <td><h4 th:text="${student.surname}"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Group Number: </h4></td>
+        <td><h4 th:text="${student.groupNumber}"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>For Payment: </h4></td>
+        <td><h4 th:text="${student.forPayment}"></h4></td>
+    </tr>
+</table>
+<input id="willDelete" type="hidden" th:field="*{willDelete}">
+<div>
+    <input class="btn btn-primary" type="submit" value="Delete" onclick="document.getElementById('willDelete').value='true'">
+    <input class="btn btn-primary" type="submit" value="Return" onclick="document.getElementById('willDelete').value='false'">
+</div>
+</form>
+</body>
+</html>
