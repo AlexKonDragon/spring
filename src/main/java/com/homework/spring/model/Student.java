@@ -1,10 +1,20 @@
 package com.homework.spring.model;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "studentTable")
 
 public class Student {
+    @Id
+//    @Column(name = "id")
     Integer id;
+    @Column(name = "name")
     String name;
+    @Column(name = "surname")
     String surname;
+    @Column(name = "groupNumber")
     Integer groupNumber;
+    @Column(name = "forPayment")
     Integer forPayment;
     private Boolean willDelete;
 
@@ -54,5 +64,27 @@ public class Student {
 
     public void setForPayment(Integer forPayment) {
         this.forPayment = forPayment;
+    }
+
+    public Student(Integer id, String name, String surname, Integer groupNumber, Integer forPayment) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.groupNumber = groupNumber;
+        this.forPayment = forPayment;
+    }
+
+    public Student() {
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", groupNumber=" + groupNumber +
+                ", forPayment=" + forPayment +
+                '}';
     }
 }
