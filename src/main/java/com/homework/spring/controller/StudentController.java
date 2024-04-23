@@ -56,4 +56,12 @@ public class StudentController {
         redirectAttributes.addFlashAttribute("studentMessage", message);
         return redirectView;
     }
+//    @RequestMapping(path = "/", method = RequestMethod.GET)
+//    public String getStudents(Model model) {
+//        List<Student> students = studentService.getStudents();
+//        model.addAttribute("students", students);
+//        model.addAttribute("student", new Student());
+//        return "test";
+//    }
 }
+

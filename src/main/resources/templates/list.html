@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body class="container">
+<form class="col p-3 m-5" method="get" th:action="'/'+${student.id}" th:object="${student}">
+
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Group Number</th>
+        <th>Payment</th>
+    </tr>
+    <tr th:if="${#lists.isEmpty(students)}">
+        <td class="text-center" colspan="7">No Records found. Add some...!</td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td class="align-middle" th:text="${student.id}"></td>
+        <td class="align-middle" th:text="${student.name}"></td>
+        <td class="align-middle" th:text="${student.surname}"></td>
+        <td class="align-middle" th:text="${student.groupNumber}"></td>
+        <td class="align-middle" th:text="${student.forPayment}"></td>
+    </tr>
+</table>
+</body>
+</html>
